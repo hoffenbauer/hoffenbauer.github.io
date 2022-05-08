@@ -1,37 +1,9 @@
-## Welcome to GitHub Pages
+# Lucas' portfolio
+Hi and welcome to my data science portfolio page!
+Here are my latest data science projects, both personal and professional. They feature a brief description and main points of work. 
 
-You can use the [editor on GitHub](https://github.com/hoffenbauer/hoffenbauer.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## [CEAPS](https://github.com/hoffenbauer/ceaps)
+A Cota para Exercício da Atividade Parlamentar dos Senadores (CEAPS) é o valor a que tem direito os senadores para realização de atividades relacionadas ao seu mandato. A cota individual por senador é variável de acordo com a distância do estado do senador a Brasília. Esse valor é, bem como o conjunto de regras relativas ao seu uso, determinado pela Mesa Diretora do Senado. A utilização da cota se dá por meio de reembolso: o senador realiza a despesa e é reembolsado pelo Senado Federal.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hoffenbauer/hoffenbauer.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+{{ “/my/fancy/url” | append: “.html” }}

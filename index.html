@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1208px;
+            height: 852px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/estados_0.js"></script>
+        <script src="data/cnuc_2023_07_poligonos_prot_int_1.js"></script>
+        <script src="data/ocorrencias_sLink_com_spp_ucs_pi_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-22.938237381654396,-60.14568835687503],[-2.8854271566543748,-31.694289378816187]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_estados_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nome'] !== null ? autolinker.link(feature.properties['nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['geometriaa'] !== null ? autolinker.link(feature.properties['geometriaa'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['sigla'] !== null ? autolinker.link(feature.properties['sigla'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['geocodigo'] !== null ? autolinker.link(feature.properties['geocodigo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_estados_0_0() {
+            return {
+                pane: 'pane_estados_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(208,208,208,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_estados_0');
+        map.getPane('pane_estados_0').style.zIndex = 400;
+        map.getPane('pane_estados_0').style['mix-blend-mode'] = 'normal';
+        var layer_estados_0 = new L.geoJson(json_estados_0, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_estados_0',
+            layerName: 'layer_estados_0',
+            pane: 'pane_estados_0',
+            onEachFeature: pop_estados_0,
+            style: style_estados_0_0,
+        });
+        bounds_group.addLayer(layer_estados_0);
+        map.addLayer(layer_estados_0);
+        function pop_cnuc_2023_07_poligonos_prot_int_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['cd_cnuc'] !== null ? autolinker.link(feature.properties['cd_cnuc'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['esfera'] !== null ? autolinker.link(feature.properties['esfera'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['uf'] !== null ? autolinker.link(feature.properties['uf'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NomeAbrev'] !== null ? autolinker.link(feature.properties['NomeAbrev'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_cnuc_2023_07_poligonos_prot_int_1_0() {
+            return {
+                pane: 'pane_cnuc_2023_07_poligonos_prot_int_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(224,54,102,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_cnuc_2023_07_poligonos_prot_int_1');
+        map.getPane('pane_cnuc_2023_07_poligonos_prot_int_1').style.zIndex = 401;
+        map.getPane('pane_cnuc_2023_07_poligonos_prot_int_1').style['mix-blend-mode'] = 'normal';
+        var layer_cnuc_2023_07_poligonos_prot_int_1 = new L.geoJson(json_cnuc_2023_07_poligonos_prot_int_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_cnuc_2023_07_poligonos_prot_int_1',
+            layerName: 'layer_cnuc_2023_07_poligonos_prot_int_1',
+            pane: 'pane_cnuc_2023_07_poligonos_prot_int_1',
+            onEachFeature: pop_cnuc_2023_07_poligonos_prot_int_1,
+            style: style_cnuc_2023_07_poligonos_prot_int_1_0,
+        });
+        bounds_group.addLayer(layer_cnuc_2023_07_poligonos_prot_int_1);
+        map.addLayer(layer_cnuc_2023_07_poligonos_prot_int_1);
+        function pop_ocorrencias_sLink_com_spp_ucs_pi_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['stateprovi'] !== null ? autolinker.link(feature.properties['stateprovi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['family'] !== null ? autolinker.link(feature.properties['family'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['genus'] !== null ? autolinker.link(feature.properties['genus'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['county'] !== null ? autolinker.link(feature.properties['county'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['locality'] !== null ? autolinker.link(feature.properties['locality'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['longitude'] !== null ? autolinker.link(feature.properties['longitude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['latitude'] !== null ? autolinker.link(feature.properties['latitude'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['speciesnam'] !== null ? autolinker.link(feature.properties['speciesnam'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ocorrencias_sLink_com_spp_ucs_pi_2_0() {
+            return {
+                pane: 'pane_ocorrencias_sLink_com_spp_ucs_pi_2',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(25,171,23,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ocorrencias_sLink_com_spp_ucs_pi_2');
+        map.getPane('pane_ocorrencias_sLink_com_spp_ucs_pi_2').style.zIndex = 402;
+        map.getPane('pane_ocorrencias_sLink_com_spp_ucs_pi_2').style['mix-blend-mode'] = 'normal';
+        var layer_ocorrencias_sLink_com_spp_ucs_pi_2 = new L.geoJson(json_ocorrencias_sLink_com_spp_ucs_pi_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ocorrencias_sLink_com_spp_ucs_pi_2',
+            layerName: 'layer_ocorrencias_sLink_com_spp_ucs_pi_2',
+            pane: 'pane_ocorrencias_sLink_com_spp_ucs_pi_2',
+            onEachFeature: pop_ocorrencias_sLink_com_spp_ucs_pi_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ocorrencias_sLink_com_spp_ucs_pi_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ocorrencias_sLink_com_spp_ucs_pi_2);
+        map.addLayer(layer_ocorrencias_sLink_com_spp_ucs_pi_2);
+        setBounds();
+        </script>
+    </body>
+</html>
